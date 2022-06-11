@@ -1,0 +1,32 @@
+.navbar {
+  background: #007fff;
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+  &_title{
+    font-size: 2em;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 800;
+  }
+  ul {
+    display: flex;
+    align-items: center;
+    li {
+      margin-left: 10px;
+      list-style-type: none; cursor: pointer;
+      color: #fff;
+      a {
+        text-decoration: none;
+        color: #007fff;
+        padding: 10px;
+        background: #fff;
+        border-radius: 10px;
+
+      }
+    }
+    li:first-child {
+      margin-left: 0;
+    }
+  }
+}
