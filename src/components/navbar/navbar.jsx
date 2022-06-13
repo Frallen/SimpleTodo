@@ -3,22 +3,31 @@ import classes from "./style.module.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { removeUser } from "../../redux/reducers/user.reducer";
+import { getAuth, signOut } from "firebase/auth";
 const Navbar = ({ isAuth, email }) => {
   const dispatch = useDispatch();
+  const isLogin = getAuth();
 
   let navigate = useNavigate();
   let logout = () => {
-    dispatch(removeUser());
-    navigate("/");
+    signOut(isLogin)
+      .then(() => {
+        dispatch(removeUser());
+        navigate("/");
+        // Sign-out successful.
+      })
+      .catch((error) => {
+        // An error happened.
+      });
   };
   return (
     <div className={classes.navbar}>
       <Link to="/" className={classes.navbar_title}>
         Todo
       </Link>
-      {isAuth ? (
+      {isLogin.currentUser ? (
         <ul className={classes.navbar_list}>
-          <li>Привет {email}</li>
+          <li>Привет {isLogin.currentUser.email}</li>
           <li onClick={() => logout()}>Выход</li>
         </ul>
       ) : (

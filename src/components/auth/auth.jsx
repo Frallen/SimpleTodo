@@ -14,7 +14,6 @@ const Auth = (props) => {
                 dispatch(setUser({
                     email:snap.user.email,
                     id:snap.user.uid,
-                    token:snap.user.accessToken
                 }))
                 navigate("/")
             })
