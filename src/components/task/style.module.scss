@@ -1,0 +1,29 @@
+.tasks {
+  display: flex;
+  flex-direction: column;
+  margin: 2em 0;
+  &_box {
+    display: flex;
+    justify-content: space-between;
+  }
+  &_form {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50%;
+  }
+}
+.active_tasks{
+  display: flex;
+  flex-direction: column;
+  flex-basis: 50%;
+
+}
+.active_task{
+  &_item{
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.icon{
+  cursor: pointer;
+}

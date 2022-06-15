@@ -8,8 +8,9 @@ import Reg from "./components/registration/reg";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser, removeUser, selectUser } from "./redux/reducers/user.reducer";
+import Task from "./components/task/task";
 
-const App = () => {
+const App = ({db}) => {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
@@ -37,6 +38,7 @@ const App = () => {
         {user ? (
           <Routes>
             <Route exact path="/" element={<Home></Home>}></Route>
+            <Route exact path="/task" element={<Task db={db}></Task>}></Route>
             <Route path="*" element={<Navigate to="/"></Navigate>}></Route>
           </Routes>
         ) : (

@@ -28,7 +28,10 @@ const Navbar = ({ isAuth, email }) => {
       {isLogin.currentUser ? (
         <ul className={classes.navbar_list}>
           <li>Привет {isLogin.currentUser.email}</li>
-          <li onClick={() => logout()}>Выход</li>
+          <li>
+            <Link to="/task">Мои задачи</Link>
+          </li>
+          <li onClick={() => logout()}>Выйти</li>
         </ul>
       ) : (
         <ul className={classes.navbar_list}>
